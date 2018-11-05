@@ -1,0 +1,44 @@
+---
+
+- hosts: localhost
+  gather_facts: False
+  tasks:
+
+    - name: Clone dataspectsSystemCoreOntology, dataspects_lib, dataspects_api
+      git:
+        repo: "https://github.com/dataspects/{{ item }}.git"
+        dest: "{{ dataspectsSystem_path_on_host }}/workspace/{{ item }}"
+      with_items:
+        - dataspectsSystemCoreOntology
+        - dataspectsSystemCookbookOntology
+      tags:
+        - inject_dataspectsSystemCoreOntology
+
+    - name: inject_dataspectsSystemCoreOntology_into_mediawiki.rb
+      template:
+        src: ../scripts/{{ item }}
+        dest: "{{ dataspectsSystem_path_on_host }}/workspace/{{ item }}"
+        mode: 0777
+      with_items:
+        - inject_dataspectsSystemCoreOntology_into_mediawiki.rb
+        - inject_dataspectsSystemCookbookOntology_into_mediawiki.rb
+      tags:
+        - inject_dataspectsSystemCoreOntology
+
+    # [[IsOperationType::RunDockerContainer]]
+    - name: Inject dataspectsSystemCoreOntology into mediawiki
+      shell: docker run \
+              --volume {{ dataspectsSystem_path_on_host }}/workspace/:/usr/src/workspace \
+              --workdir /usr/src/workspace/dataspects_lib \
+              --network dataspectsstandardsystem_default \
+              --rm \
+                dataspects/dataspects:{{ dataspects_version }} \
+                  bundle exec bin/dataspects \
+                    --profile /usr/src/workspace/standard_system_profiles.yml \
+                      manage /usr/src/workspace/{{ item }}
+      ignore_errors: yes
+      with_items:
+        - inject_dataspectsSystemCoreOntology_into_mediawiki.rb
+        - inject_dataspectsSystemCookbookOntology_into_mediawiki.rb
+      tags:
+        - inject_dataspectsSystemCoreOntology
