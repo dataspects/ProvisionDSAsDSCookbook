@@ -2,10 +2,10 @@
 
 ANSIBLETAGS=(
   place_run_containers_manually_scripts
-  # place_system_profiles
-  # inject_dataspectsSystemCoreOntology
+  place_system_profiles
+  inject_dataspectsSystemCoreAndCookbookOntology
   # extract_dataspectsSystemCoreOntology
-  # execute_mediawiki_maintenance_runJobs
+  execute_mediawiki_maintenance_runJobs
   # reset_elasticsearch_index
   place_dataspects_search_config_files
 )
