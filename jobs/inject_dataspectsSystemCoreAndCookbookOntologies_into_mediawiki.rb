@@ -1,12 +1,12 @@
 oDataspectsCoreOntology = Dataspects::OntologyRepository.new(
   @oProfiles,
-  "/usr/src/workspace/dataspectsSystemCoreOntology",
+  "/usr/src/dataspectsSystemCoreOntology",
   @hOptions
 )
 
 oDataspectsSystemCookbook = Dataspects::OntologyRepository.new(
   @oProfiles,
-  "/usr/src/workspace/dataspectsSystemCookbookOntology",
+  "/usr/src/dataspectsSystemCookbookOntology",
   @hOptions
 )
 

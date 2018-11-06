@@ -2,19 +2,22 @@
 
 DATASPECTS_VERSION=181105a
 
-docker run \
-  --network dataspectsstandardsystem_default \
-  --volume ${PWD}:/usr/src \
-  --workdir /tmp/dataspects_lib \
-  --rm \
-    dataspects/dataspects:$DATASPECTS_VERSION \
-      bundle exec bin/dataspects \
-        --profile /usr/src/config/standard_system_profiles.yml \
-          manage /usr/src/jobs/reset_elasticsearch_index.rb
+# echo "Resetting Elasticsearch Index..."
+# docker run \
+#   --network dataspectsstandardsystem_default \
+#   --volume ${PWD}:/usr/src \
+#   --workdir /tmp/dataspects_lib \
+#   --rm \
+#     dataspects/dataspects:$DATASPECTS_VERSION \
+#       bundle exec bin/dataspects \
+#         --profile /usr/src/config/standard_system_profiles.yml \
+#           manage /usr/src/jobs/reset_elasticsearch_index.rb
 
+echo "Cloning repositories..."
 git clone https://github.com/dataspects/dataspectsSystemCoreOntology.git
 git clone https://github.com/dataspects/dataspectsSystemCookbookOntology.git
 
+echo "Injecting ontologies..."
 docker run \
   --volume ${PWD}:/usr/src \
   --workdir /tmp/dataspects_lib \
