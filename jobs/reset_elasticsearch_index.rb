@@ -1,5 +1,5 @@
-require "/usr/src/system_instance_root/elasticsearch_index_standard_settings.rb"
-require "/usr/src/system_instance_root/elasticsearch_index_standard_mapping.rb"
+require "/usr/src/elasticsearch/elasticsearch_index_standard_settings.rb"
+require "/usr/src/elasticsearch/elasticsearch_index_standard_mapping.rb"
 
 sIndexName = 'smwckindex-0'
 Dataspects.logMessage("Managing #{sIndexName}")

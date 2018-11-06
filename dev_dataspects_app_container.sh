@@ -1,3 +1,5 @@
+DATASPECTS_VERSION=181105a
+
 docker run \
   --name dataspects_app \
   --network dataspectsstandardsystem_default \
@@ -5,5 +7,5 @@ docker run \
   --workdir /usr/src/dataspects_lib \
   --rm \
   -it \
-    dataspects/dataspects:{{ dataspects_version }} \
+    dataspects/dataspects:$DATASPECTS_VERSION \
       /bin/bash
