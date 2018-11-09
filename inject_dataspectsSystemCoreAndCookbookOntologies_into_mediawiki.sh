@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATASPECTS_VERSION=181105a
+DATASPECTS_VERSION=181108a
 
 # echo "Resetting Elasticsearch Index..."
 # docker run \
