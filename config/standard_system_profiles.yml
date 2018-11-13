@@ -2,7 +2,6 @@
 dataspectsSystemESCluster:
   elasticsearch_cluster_url: "http://elasticsearch:9200"
 dataspectsStandardSystemSemanticMediaWiki:
-  #FIXME: How to use Docker service names in URL?
   mw_http_script_path_url: "http://web/w"
   mw_user_name: Admin
   mw_user_password: adminpass
