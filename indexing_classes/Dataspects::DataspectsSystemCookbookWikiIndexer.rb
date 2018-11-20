@@ -48,7 +48,7 @@ module Dataspects
     end
 
     def sHasEntityType
-      sRandomValueForSMWPROPERTYNAME('HasSubjectType')
+      sRandomValueForSMWPROPERTYNAME('HasEntityType')
     end
 
     def sHasEntityTypeAndEntityTitle
@@ -56,7 +56,7 @@ module Dataspects
     end
 
     def sHasResourceURL
-      "http://10.100.0.123:20201/w/index.php/#{sHasResourceName}"
+      "http://localmediawiki/w/index.php/#{sHasResourceName}"
     end
 
     def sHasEntityBlurb
@@ -70,15 +70,15 @@ module Dataspects
     def initialize
       # [[ThisMethodLogsTo::RailsContainer]]
       @sTIKAServerLabel = 'dataspectsSystemTIKAServer'
-      @sProfilesURL = '/usr/src/VOLUMEDIN/myDataspectsSystemCONFIG/system_access_profiles.yml'
+      @sProfilesURL = '/usr/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml'
       @sElasticsearchClusterName = "dataspectsSystemESCluster"
-      @sResourceSiloName = "dataspectsSystemCookbookWiki"
+      @sResourceSiloName = "localmediawiki"
       @sIndexName = "smwckindex-0"
       super
       @oSMW = SemanticMediaWiki.new(@oProfiles, @sResourceSiloName, @hOptions)
     end
 
-    def ajsonResourceURIs
+    def ajsonObjectURIs
       # [[]]
       ajsonResourceURIs = []
       oSMWPages = Dataspects::Facet.new(@hOptions)

@@ -1,5 +1,5 @@
 oResponse = RestClient.put(
-  "172.20.0.9:3000/index_sINDEXINGCLASSNAME/usr/src/VOLUMEDIN/SCRIPTS/IndexingClasses/Dataspects::DataspectsSystemCookbookWikiIndexer",
+  "http://dataspects_rails:3000/index_sINDEXINGCLASSNAME/usr/ProvisionDSAsDSCookbook/indexing_classes/Dataspects::DataspectsSystemCookbookWikiIndexer",
   nil,
   :x_api_key => 'none'
 )
