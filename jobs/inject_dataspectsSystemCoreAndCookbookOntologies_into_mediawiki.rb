@@ -1,8 +1,8 @@
 oDataspectsCoreOntology = Dataspects::OntologyRepository.new(@oProfiles, @hOptions)
-oDataspectsCoreOntology.use_existing_at_URL("/usr/ProvisionDSAsDSCookbook/dataspectsSystemCoreOntology")
+oDataspectsCoreOntology.use_existing_at_URL("/usr/dataspectsSoftware/dataspectsSystemCoreOntology")
 
 oDataspectsSystemCookbook = Dataspects::OntologyRepository.new(@oProfiles, @hOptions)
-oDataspectsSystemCookbook.use_existing_at_URL("/usr/ProvisionDSAsDSCookbook/dataspectsSystemCookbookOntology")
+oDataspectsSystemCookbook.use_existing_at_URL("/usr/dataspectsSoftware/dataspectsSystemCookbookOntology")
 
 oSMW = Dataspects::SemanticMediaWiki.new(
   @oProfiles,

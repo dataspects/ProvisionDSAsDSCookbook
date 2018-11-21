@@ -70,7 +70,7 @@ module Dataspects
     def initialize
       # [[ThisMethodLogsTo::RailsContainer]]
       @sTIKAServerLabel = 'dataspectsSystemTIKAServer'
-      @sProfilesURL = '/usr/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml'
+      @sProfilesURL = '/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml'
       @sElasticsearchClusterName = "dataspectsSystemESCluster"
       @sResourceSiloName = "localmediawiki"
       @sIndexName = "smwckindex-0"

@@ -3,8 +3,8 @@
 DATASPECTS_VERSION="181116d"
 DATASPECTS_SYSTEM_INSTANCE_NAME="localmediawiki"
 DATASPECTS_SYSTEM_INSTANCE_PATH="/home/lex/localmediawiki"
-SYSTEM_PROFILES="/usr/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml"
-JOBS="/usr/ProvisionDSAsDSCookbook/jobs"
+SYSTEM_PROFILES="/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml"
+JOBS="/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/jobs"
 
 # #echo "Cloning repositories..."
 # #git clone git@github.com:dataspects/dataspectsSystemCoreOntology.git
@@ -13,7 +13,7 @@ JOBS="/usr/ProvisionDSAsDSCookbook/jobs"
 echo "Injecting ontologies..."
 docker run \
   --volume ${DATASPECTS_SYSTEM_INSTANCE_PATH}:/usr/src \
-  --volume ${PWD}:/usr/ProvisionDSAsDSCookbook \
+  --volume ${PWD}/..:/usr/dataspectsSoftware \
   --workdir /tmp/dataspects_lib \
   --network ${DATASPECTS_SYSTEM_INSTANCE_NAME,,}_default \
   --rm \
@@ -32,7 +32,7 @@ docker exec \
 echo "Resetting Elasticsearch Index..."
 docker run \
   --volume ${DATASPECTS_SYSTEM_INSTANCE_PATH}:/usr/src \
-  --volume ${PWD}:/usr/ProvisionDSAsDSCookbook \
+  --volume ${PWD}/..:/usr/dataspectsSoftware \
   --workdir /tmp/dataspects_lib \
   --network ${DATASPECTS_SYSTEM_INSTANCE_NAME,,}_default \
   --env SHOW_DATASPECTS_LOG=true \
@@ -45,7 +45,7 @@ docker run \
 echo "Indexing..."
 docker run \
   --volume ${DATASPECTS_SYSTEM_INSTANCE_PATH}:/usr/src \
-  --volume ${PWD}:/usr/ProvisionDSAsDSCookbook \
+  --volume ${PWD}/..:/usr/dataspectsSoftware \
   --workdir /tmp/dataspects_lib \
   --network ${DATASPECTS_SYSTEM_INSTANCE_NAME,,}_default \
   --env SHOW_DATASPECTS_LOG=true \
