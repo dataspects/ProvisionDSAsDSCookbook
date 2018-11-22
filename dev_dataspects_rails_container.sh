@@ -10,7 +10,7 @@ docker run \
   --env SIDEKIQ_UI_PASSWORD=none \
   --env API_KEY=none \
   --env REDIS_URL=redis://redis:6379/12 \
-  --add-host="elasticsearch:172.22.0.5" \
+  --add-host="elasticsearch:172.22.0.2" \
   --rm \
   -it \
   --env DATASPECTS_SEARCH_CONFIG_FILE=/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/config/dataspectsSearch_config.yml \

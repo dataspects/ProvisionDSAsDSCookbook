@@ -51,6 +51,10 @@ module Dataspects
       sRandomValueForSMWPROPERTYNAME('HasEntityType')
     end
 
+    def sHasEntityTitle
+      sRandomValueForSMWPROPERTYNAME('HasEntityTitle')
+    end
+
     def sHasEntityTypeAndEntityTitle
       sRandomValueForSMWPROPERTYNAME('HasEntityTypeAndEntityTitle')
     end

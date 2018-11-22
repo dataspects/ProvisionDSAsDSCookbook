@@ -9,7 +9,21 @@ JOBS="/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/jobs"
 # #echo "Cloning repositories..."
 # #git clone git@github.com:dataspects/dataspectsSystemCoreOntology.git
 # #git clone git@github.com:dataspects/dataspectsSystemCookbookOntology.git
-#
+
+echo "Nuke content"
+echo "Main"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 0 --all"
+echo "Template"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 10 --all"
+echo "Form"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 106 --all"
+echo "Property"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 102 --all"
+echo "Concept"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 108 --all"
+echo "Category"
+docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 14 --all"
+
 echo "Injecting ontologies..."
 docker run \
   --volume ${DATASPECTS_SYSTEM_INSTANCE_PATH}:/usr/src \
@@ -26,8 +40,10 @@ docker run \
 echo "Run jobs and rebuild data"
 docker exec \
   localmediawiki_mediawikiservice_1 bash \
-    -c "php w/maintenance/runJobs.php \
-        && php w/extensions/SemanticMediaWiki/maintenance/rebuildData.php"
+    -c "php w/maintenance/rebuildall.php \
+        php w/maintenance/runJobs.php \
+        && php w/extensions/SemanticMediaWiki/maintenance/rebuildData.php \
+        && php w/maintenance/runJobs.php"
 
 echo "Resetting Elasticsearch Index..."
 docker run \
