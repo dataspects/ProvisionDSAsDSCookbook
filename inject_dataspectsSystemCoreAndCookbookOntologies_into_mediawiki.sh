@@ -10,9 +10,11 @@ JOBS="/usr/dataspectsSoftware/ProvisionDSAsDSCookbook/jobs"
 # #git clone git@github.com:dataspects/dataspectsSystemCoreOntology.git
 # #git clone git@github.com:dataspects/dataspectsSystemCookbookOntology.git
 
+./php_maintenance_dump_backup.sh
+
 echo "Nuke content"
-echo "Main"
-docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 0 --all"
+# echo "Main"
+# docke exe localmediawiki_mediawikiservice_1 bas -c "php w/maintenance/nukeNS.php --delete --ns 0 --all"
 echo "Template"
 docker exec localmediawiki_mediawikiservice_1 bash -c "php w/maintenance/nukeNS.php --delete --ns 10 --all"
 echo "Form"

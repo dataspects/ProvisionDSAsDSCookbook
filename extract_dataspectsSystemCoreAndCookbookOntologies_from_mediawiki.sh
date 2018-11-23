@@ -1,15 +1,17 @@
 #!/bin/bash
 
-DATASPECTS_VERSION=181105a
+DATASPECTS_VERSION=181116d
 
 echo "Extracting ontologies..."
 docker run \
-  --volume /home/lex/dataspectsStandardSystem:/usr/src \
-  --volume /media/lex/LEXSAMSUNG-64GB/ProvisionDSAsDSCookbook:/usr/ProvisionDSAsDSCookbook \
-  --workdir /usr/src/dataspects_lib \
-  --network dataspectsstandardsystem_default \
+  --name dataspects_extract \
+  --network localmediawiki_default \
   --rm \
+  -it \
+  --volume ${PWD}/..:/usr/dataspectsSoftware \
+  --workdir /usr/dataspectsSoftware/dataspects_lib \
+  --env SHOW_DATASPECTS_LOG=true \
     dataspects/dataspects:$DATASPECTS_VERSION \
       bundle exec bin/dataspects \
-        --profiles /usr/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml \
-          manage /usr/ProvisionDSAsDSCookbook/jobs/extract_dataspectsSystemCoreAndCookbookOntologies_from_mediawiki.rb
+        --profiles /usr/dataspectsSoftware/ProvisionDSAsDSCookbook/config/standard_system_profiles.yml \
+          manage /usr/dataspectsSoftware/ProvisionDSAsDSCookbook/jobs/extract_dataspectsSystemCoreAndCookbookOntologies_from_mediawiki.rb
