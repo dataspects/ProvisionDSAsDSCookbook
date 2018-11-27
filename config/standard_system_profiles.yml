@@ -1,9 +1,9 @@
 ---
 dataspectsSystemESCluster:
-  elasticsearch_cluster_url: "http://elasticsearch:9200"
+  elasticsearch_cluster_url: "http://localmediawiki:9200"
 localmediawiki:
   # This the service name as seen on Docker network
-  mw_http_script_path_url: "http://mediawikiservice/w"
+  mw_http_script_path_url: "http://localmediawiki/w"
   mw_user_name: Admin
   mw_user_password: adminpass
   mw_must_log_in: true
