@@ -1,5 +1,7 @@
-require "./elasticsearch_settings/elasticsearch_index_standard_settings.rb"
-require "./elasticsearch_settings/elasticsearch_index_standard_mapping.rb"
+puts `pwd`
+
+require "../ProvisionDSAsDSCookbook/elasticsearch_settings/elasticsearch_index_standard_settings.rb"
+require "../ProvisionDSAsDSCookbook/elasticsearch_settings/elasticsearch_index_standard_mapping.rb"
 
 sIndexName = 'smwckindex-0'
 Dataspects.logMessage("Managing #{sIndexName}")
