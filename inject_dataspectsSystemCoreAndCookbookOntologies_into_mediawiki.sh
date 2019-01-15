@@ -26,7 +26,7 @@ dataspects \
 
 echo "Run jobs and rebuild data"
 docker exec \
-  tempdevwiki_mediawikiservice_1 bash \
+  localdataspectssystem_mediawikiservice_1 bash \
     -c "php w/maintenance/rebuildall.php \
         php w/maintenance/runJobs.php \
         && php w/extensions/SemanticMediaWiki/maintenance/rebuildData.php \
