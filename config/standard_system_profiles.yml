@@ -1,9 +1,9 @@
 ---
 dataspectsSystemESCluster:
-  elasticsearch_cluster_url: "http://localdataspectssystem:9200"
-localdataspectssystem:
+  elasticsearch_cluster_url: "http://wikidataspectslocal:9200"
+wikidataspectslocal:
   # This the service name as seen on Docker network
-  mw_http_script_path_url: "http://localdataspectssystem/w"
+  mw_http_script_path_url: "http://wikidataspectslocal/w"
   mw_user_name: Admin
   mw_user_password: adminpass
   mw_must_log_in: true

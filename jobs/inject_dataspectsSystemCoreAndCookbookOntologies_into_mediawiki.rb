@@ -1,7 +1,7 @@
 oDataspectsOntology = Dataspects::OntologyRepository.new(@oProfiles, @hOptions)
 oSMW = Dataspects::SemanticMediaWiki.new(
   @oProfiles,
-  "localdataspectssystem",
+  "wikidataspectslocal",
   @hOptions
 )
 
